@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gossip Girl</title>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        let cardInfo = [
+            {
+                title: 'Welcome back, Queen J!',
+                image: 'img/img0.jpeg',
+                body: 'Spotted: Nuestra Blair de Argentina recibió un regalo de su Gossip Girl ¿Quieres descubrir quién está detrás de esto?',
+                fullBody: 'Dicen que las amistades verdaderas sobreviven a colegios, exámenes y maratones de Gossip Girl en cualquier lugar o momento. Parece que tenían razón...'
+            },
+            {
+                title: 'Primer pista',
+                image: 'img/serena.webp',
+                body: 'Algunos test del internet aseguran que cierta persona tiene la personalidad de Serena Van Der Woodsend. La involucrada discrepa: ni la personalidad ni el color de pelo parecen acompañar al diagnóstico.',
+                fullBody: 'Ella siente que su personalidad va más con la verdadera Gossip, aunque, no todos en este lugar saben quién es en realidad...'
+            },
+            {
+                title: "Segunda pista",
+                image: "img/auris.jpg",
+                body: 'Si alguna vez tomaste prestado un auricular suyo, seguramente escuchaste algún cantante europeo que aparece demasiado seguido en sus playlist.',
+                fullBody: '<center>Curioso...<br>¿Casualidad o confesión?</center>'
+            },
+            {
+                title: "Tercera pista",
+                image: "img/hearts.avif",
+                body: 'Si alguna vez tomaste prestado un auricular suyo, seguramente escuchaste algún cantante europeo que aparece demasiado seguido en sus playlist. Curioso... ¿casualidad o confesión? En fin, hay secretos que solo pueden guardarse entre dos...',
+                fullBody: '<center>(A.T. y S.A. // 2022)</center>'
+            },
+            {
+                title: "Última pista",
+                image: "img/final.jpeg",
+                body: 'Alguien cree que su identidad sigue siendo un secreto, que ternura. ¿ya descubriste quién estuvo detrás de todo esto?',
+                fullBody: '<center>You know yo love me.<br>XOXO, Gossip Girl.</center>'
+            }
+        ]</script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@5.2/dist/quartz/bootstrap.min.css">
+    <style>
+        body {
+            background-color: black;
+            background-image: url(img/gossipback.jpeg);
+            background-size: 100% 100%;
+            background-attachment: fixed;
+            /* Mantiene el fondo fijo si hay scroll */
+            background-repeat: no-repeat;
+        }
+
+        nav {
+            width: 100%;
+            margin-top: 0px;
+            padding: 0px;
+        }
+
+        .container-fluid {
+            background-color: black;
+
+        }
+
+        #gossipimg {
+            width: 200px;
+            height: auto;
+            margin: auto;
+            display: block;
+            padding: 0%;
+        }
+
+        .card {
+            background-color: white;
+            width: 60%;
+            margin: auto;
+            text-align: center;
+        }
+
+        .card h1 {
+            font-size: large;
+            font-family: Arial, Helvetica, sans-serif;
+            margin-top: 5%;
+        }
+
+        .card img {
+            height: auto;
+            width: 80%;
+            margin: auto;
+        }
+
+        .card p {
+            font-family: Arial, Helvetica, sans-serif;
+            text-align: justify;
+            font-size: medium;
+            padding: 2%;
+            margin: 10%;
+        }
+
+        #nextgossip {
+            text-align: right;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: medium;
+            margin-right: 2%;
+            margin-top: 2%;
+            text-decoration: underline;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+            <img id="gossipimg" src='img/gossiptitle.jpeg'>
+        </div>
+    </nav>
+
+    <div class="card" data-bs-toggle="modal" data-bs-target="#gossip0" style="cursor: pointer;">
+        <b>
+            <h1 class="text-dark m-3" id="card-title">Welcome back, Queen J!</h1>
+        </b>
+        <img crossorigin="anonymous" src='img/img0.jpeg' id="card-image">
+        <p class="text-dark" id="card-body">Spotted: Nuestra Blair de Argentina recibió un regalo de su Gossip Girl ¿Quieres descubrir quién está detrás de esto...?</p>
+    </div>
+
+    <p id="nextgossip">next post ⏭</p>
+
+    <div class="modal fade" id="gossip0" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content p-2"> <!-- Added padding for spacing -->
+
+                <!-- Close Button Header Component -->
+                <div class="modal-header border-0 justify-content-end p-0">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+                <!-- Your First Inner Card Inside the Modal -->
+                <div class="card p-1 modal-body" style="width: 90%;">
+                    <h3 class="card-header text-dark" id="modalTitle">Welcome back, Queen J!</h3>
+                    <div class="card-body p-0">
+                        <img crossorigin="anonymous" src="img/img0.jpeg" id="modalImage">
+                        <p class="card-text text-dark" id="modalBody">Dicen que las amistades verdaderas sobreviven a colegios, exámenes y maratones de Gossip Girl en cualquier lugar o momento. Parece que tenían razón...</p>
+                    </div>
+                </div>
+
+
+
+            </div>
+        </div>
+    </div>
+
+    <script>
+
+
+        let cardIndex = 0;
+        const btn = document.getElementById('nextgossip');
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            let cardtitle = document.getElementById('card-title')
+            let cardimage = document.getElementById('card-image')
+            let cardbody = document.getElementById('card-body')
+            let modalTitle = document.getElementById('modalTitle')
+            let modalImage = document.getElementById('modalImage')
+            let modalBody = document.getElementById('modalBody')
+            cardIndex++;
+            cardtitle.innerHTML = cardInfo[cardIndex].title;
+            modalTitle.innerHTML = cardInfo[cardIndex].title;
+            cardbody.innerHTML = cardInfo[cardIndex].body;
+            modalBody.innerHTML = cardInfo[cardIndex].fullBody;
+            cardimage.setAttribute('src', cardInfo[cardIndex].image);
+            modalImage.setAttribute('src', cardInfo[cardIndex].image);
+            if (cardIndex == 4) {
+                cardIndex = -1;
+            }
+        });
+
+
+    </script>
+
+
+    <%- include('partials/foot.ejs') %>

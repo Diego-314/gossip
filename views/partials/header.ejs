@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gossip Girl</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@5.2/dist/quartz/bootstrap.min.css">
+    <style>
+        
+        body {
+            background-color: black;
+            background-image: url(img/gossipback.jpeg);
+            background-size: 100% 100%; 
+            background-attachment: fixed; /* Mantiene el fondo fijo si hay scroll */
+            background-repeat: no-repeat;
+        }
+
+        nav {
+            margin: auto;
+            width: 100%;
+        }
+
+        #gossipimg {
+            width: 150px;
+            height: auto;
+            margin: auto;
+            display: block;
+        }
+
+        .container-fluid {
+            background-color: black;
+            
+        }
+
+        #loginform {
+            /* Toma todo el espacio disponible hacia abajo desde el nav */
+            flex-grow: 1; 
+            
+            /* El truco mágico: calcula los márgenes automáticos en horizontal y vertical */
+            margin: auto; 
+            
+            /* Centrado de los elementos internos del formulario */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            
+            /* Ajustes de tamaño del formulario */
+            width: 100%;
+            max-width: 400px;
+            padding: 20px;
+        }
+
+        #loginform input {
+            margin-bottom: 1%;
+        }
+
+
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+            <img id="gossipimg" src='img/gossiptitle.jpeg'>
+        </div>
+    </nav>
