@@ -9,31 +9,37 @@
     <script>
         let cardInfo = [
             {
-                title: 'Welcome back, Queen J!',
-                image: 'img/img0.jpeg',
-                body: 'Spotted: Nuestra Blair de Argentina recibió un regalo de su Gossip Girl ¿Quieres descubrir quién está detrás de esto?',
-                fullBody: 'Dicen que las amistades verdaderas sobreviven a colegios, exámenes y maratones de Gossip Girl en cualquier lugar o momento. Parece que tenían razón...'
+                title: 'Spotted',
+                image: 'img/img0.avif',
+                body: 'Nuestra Blair de Argentina recibió un regalo de su Gossip Girl ¿Quieres descubrir quién está detrás de esto?',
+                fullBody: '-'
             },
             {
-                title: 'Primer pista',
+                title: 'Welcome back, Queen J!',
+                image: 'img/img0.jpeg',
+                body: 'Dicen que las amistades verdaderas sobreviven a colegios, exámenes y maratones de Gossip Girl en cualquier lugar o momento. Parece que tenían razón...',
+                fullBody: '-'
+            },
+            {
+                title: '',
                 image: 'img/serena.webp',
                 body: 'Algunos test del internet aseguran que cierta persona tiene la personalidad de Serena Van Der Woodsend. La involucrada discrepa: ni la personalidad ni el color de pelo parecen acompañar al diagnóstico.',
                 fullBody: 'Ella siente que su personalidad va más con la verdadera Gossip, aunque, no todos en este lugar saben quién es en realidad...'
             },
             {
-                title: "Segunda pista",
+                title: "",
                 image: "img/auris.jpg",
                 body: 'Si alguna vez tomaste prestado un auricular suyo, seguramente escuchaste algún cantante europeo que aparece demasiado seguido en sus playlist.',
                 fullBody: '<center>Curioso...<br>¿Casualidad o confesión?</center>'
             },
             {
-                title: "Tercera pista",
+                title: "",
                 image: "img/hearts.avif",
-                body: 'Si alguna vez tomaste prestado un auricular suyo, seguramente escuchaste algún cantante europeo que aparece demasiado seguido en sus playlist. Curioso... ¿casualidad o confesión? En fin, hay secretos que solo pueden guardarse entre dos...',
+                body: 'En fin, hay secretos que solo pueden guardarse entre dos...',
                 fullBody: '<center>(A.T. y S.A. // 2022)</center>'
             },
             {
-                title: "Última pista",
+                title: "",
                 image: "img/final.jpeg",
                 body: 'Alguien cree que su identidad sigue siendo un secreto, que ternura. ¿ya descubriste quién estuvo detrás de todo esto?',
                 fullBody: '<center>You know yo love me.<br>XOXO, Gossip Girl.</center>'
@@ -115,15 +121,15 @@
         </div>
     </nav>
 
-    <div class="card" data-bs-toggle="modal" data-bs-target="#gossip0" style="cursor: pointer;">
+    <div id="tarjeta" class="card" data-bs-toggle="modal" data-bs-target="#gossip0" style="cursor: pointer;">
         <b>
-            <h1 class="text-dark m-3" id="card-title">Welcome back, Queen J!</h1>
+            <h1 class="text-dark m-3" id="card-title">Spotted</h1>
         </b>
-        <img crossorigin="anonymous" src='img/img0.jpeg' id="card-image">
-        <p class="text-dark" id="card-body">Spotted: Nuestra Blair de Argentina recibió un regalo de su Gossip Girl ¿Quieres descubrir quién está detrás de esto...?</p>
-    </div>
+        <img crossorigin="anonymous" src='img/img0.avif' id="card-image">
+        <p class="text-dark" id="card-body">Nuestra Blair de Argentina recibió un regalo de su Gossip Girl ¿Quieres descubrir quién está detrás de esto?</p>
 
-    <p id="nextgossip">next post ⏭</p>
+        <span class="text-dark mb-2" id="indicador" style="display: none;"><i><u>Click para abrir</u></i></span>
+    </div>
 
     <div class="modal fade" id="gossip0" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
@@ -138,7 +144,7 @@
                 <div class="card p-1 modal-body" style="width: 90%;">
                     <h3 class="card-header text-dark" id="modalTitle">Welcome back, Queen J!</h3>
                     <div class="card-body p-0">
-                        <img crossorigin="anonymous" src="img/img0.jpeg" id="modalImage">
+                        <img crossorigin="anonymous" src="img/img0.avif" id="modalImage">
                         <p class="card-text text-dark" id="modalBody">Dicen que las amistades verdaderas sobreviven a colegios, exámenes y maratones de Gossip Girl en cualquier lugar o momento. Parece que tenían razón...</p>
                     </div>
                 </div>
@@ -149,6 +155,10 @@
         </div>
     </div>
 
+    <p id="nextgossip">next post ⏭</p>
+
+
+
     <script>
 
 
@@ -157,6 +167,8 @@
         btn.addEventListener('click', (e) => {
             e.preventDefault();
             let cardtitle = document.getElementById('card-title')
+            let tarjeta = document.getElementById('tarjeta')
+            let indicador = document.getElementById('indicador')
             let cardimage = document.getElementById('card-image')
             let cardbody = document.getElementById('card-body')
             let modalTitle = document.getElementById('modalTitle')
@@ -169,6 +181,15 @@
             modalBody.innerHTML = cardInfo[cardIndex].fullBody;
             cardimage.setAttribute('src', cardInfo[cardIndex].image);
             modalImage.setAttribute('src', cardInfo[cardIndex].image);
+
+            if (cardIndex <= 1) {
+                tarjeta.setAttribute('data-bs-target', '');
+                indicador.setAttribute('style', 'display:none');
+            } else {
+                tarjeta.setAttribute('data-bs-target', '#gossip0');
+                indicador.setAttribute('style', 'display:block');
+            }
+
             if (cardIndex == 4) {
                 cardIndex = -1;
             }

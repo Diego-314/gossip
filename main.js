@@ -15,9 +15,11 @@ app.get('/', (req, res) => {
 
 app.post('/login', (req, res) => {
     var { user, pass } = req.body;
-    let friendUser = 'admin';
+    let friendUser = 'QueenJ';
     let friendPassword = '123';
-    if (user == friendUser && pass == friendPassword) return res.redirect('/menu')
+    if (user == friendUser && pass == friendPassword) {
+        return res.redirect('/menu')
+    } 
 });
 
 app.get('/menu', (req, res) => {
